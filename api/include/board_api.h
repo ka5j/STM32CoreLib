@@ -4,6 +4,8 @@
 
 #include "delay_api.h"
 #include "gpio_api.h"
+#include "usart_api.h"
+#include "tim2_5_api.h"
 
 #define BOARD_LED_PORT GPIO_PORTA
 #define BOARD_LED_PIN PIN5
@@ -17,6 +19,9 @@ void board_led_on(void);
 void board_led_off(void);
 void board_led_toggle(void);
 uint8_t board_led_status(void);
+
+void board_pwm_led_init(void);
+void board_pwm_set_brightness(uint8_t percent);
 
 void board_button_init(void);
 uint8_t board_button_pressed(void);
