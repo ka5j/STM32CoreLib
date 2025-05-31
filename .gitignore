@@ -1,0 +1,4 @@
+# Ignore local development/testing files
+/examples/
+/startup/
+/linker/
