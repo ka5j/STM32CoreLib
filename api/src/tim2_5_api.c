@@ -1,5 +1,5 @@
 #include "tim2_5_api.h"
-#include "../../core/include/bare_tim2_5.h"
+#include "bare_tim2_5.h"
 
 static TIM2_5_TypeDef *get_timer_instance(TimerPort timer)
 {

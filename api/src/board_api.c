@@ -4,6 +4,7 @@
 #include "usart_api.h"
 #include "tim2_5_api.h"
 #include "bare_gpio.h"
+#include "adc_api.h"
 
 #include <stdint.h>
 
@@ -83,4 +84,37 @@ char board_usart_receive_char(void)
 void board_usart_clear(void)
 {
     usart_clear(USART_PORT_2);
+}
+
+uint16_t board_read_temp_sensor(void)
+{
+    static uint8_t init = 0;
+    if (!init)
+    {
+        adc_init(ADC_CHANNEL_1); // PA1
+        init = 1;
+    }
+    return adc_read(ADC_CHANNEL_1);
+}
+
+uint16_t board_read_potentiometer(void)
+{
+    static uint8_t init = 0;
+    if (!init)
+    {
+        adc_init(ADC_CHANNEL_10); // PC0
+        init = 1;
+    }
+    return adc_read(ADC_CHANNEL_10);
+}
+
+uint16_t board_read_light_sensor(void)
+{
+    static uint8_t init = 0;
+    if (!init)
+    {
+        adc_init(ADC_CHANNEL_11); // PC1
+        init = 1;
+    }
+    return adc_read(ADC_CHANNEL_11);
 }

@@ -32,4 +32,8 @@ char board_usart_receive_char(void);
 void board_usart_clear(void);
 // ANSI clear screen
 
+uint16_t board_read_temp_sensor(void);   // PA1 / ADC1_IN1
+uint16_t board_read_potentiometer(void); // PC0 / ADC1_IN10
+uint16_t board_read_light_sensor(void);  // PC1 / ADC1_IN11
+
 #endif
